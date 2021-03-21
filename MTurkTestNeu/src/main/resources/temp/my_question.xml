@@ -1,0 +1,5 @@
+<ExternalQuestion xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2006-07-14/ExternalQuestion.xsd">
+<ExternalURL>https://textract-console-us-east-2-d498a35d-5129-4e88-9ace-81218d3dece4.s3.us-east-2.amazonaws.com/Sample.html</ExternalURL>
+
+  <FrameHeight>450</FrameHeight>
+</ExternalQuestion>

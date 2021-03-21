@@ -1,0 +1,83 @@
+<HTMLQuestion xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2011-11-11/HTMLQuestion.xsd">
+  <HTMLContent><![CDATA[
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <script type='text/javascript'>
+        var counter = 0;
+
+       function addFields(){
+            
+           
+            counter++;
+            var newFields = document.getElementById('formcontent').cloneNode(true);
+            newFields.id = '';
+            
+            var newField = newFields.childNodes;
+            for (var i=0;i<newField.length;i++) {
+                var theName = newField[i].name
+                if (theName)
+                    newField[i].name = theName + counter;
+            }
+            var insertHere = document.getElementById('writeroot');
+	        insertHere.parentNode.insertBefore(newFields,insertHere);
+     
+        }
+        
+    </script>
+</head>
+      <body>
+        <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+        <crowd-form answer-format="flatten-objects">
+            <div>
+                <strong>Instructions: </strong> 
+                <span>Click the link below to review the Website. Collect the following information if it's available</span>
+                <div>
+                    <div>
+                        <p><strong>Link to the Website:</strong></p>
+        
+                        <!-- Your website URLs will be substituted for the "url" variable when you publish 
+                               a batch with an input file containing multiple website URLs -->
+                        <a href= ${image_url} target="_blank">please check the image to create the form</a>
+        
+                    </div>
+
+                    <div>
+                        <p><crowd-input name="Form title" placeholder="form title" required></crowd-input></p>
+                    </div>
+        
+                    <div id="formcontent"> 
+                        <select name="questiontype" id="questiontype">
+                            <option value="shortext">Short Text</option>
+                            <option value="longtext">Long Text</option>
+                            <option value="singleselect">Single-Select</option>
+                            <option value="multiselect">Multi-Select</option>
+                            <option value="informationfield">Information Field</option>
+                       </select>
+                       <p><crowd-input name="question" placeholder="question" required></crowd-input></p>
+                       <p><crowd-input name="description" placeholder="Enter description here" required></crowd-input></p>
+                       <p><crowd-input type="text" id= "option" name="option" placeholder="option"></crowd-input></p>
+
+                       <crowd-button onclick="addOptions()">add option</crowd-button>
+                       <div id="optioncontainer"/>
+                        
+                   </div>
+                  
+                    <div>
+                    
+                       <crowd-button onclick="addFields()">add field</crowd-button>
+                    
+                      <span id="writeroot"></span>
+                   </div>
+                    
+                    </div>
+                </div>
+            </div>
+         
+        </crowd-form>
+      </body>
+    </html>
+  ]]>
+  </HTMLContent>
+  <FrameHeight>0</FrameHeight>
+</HTMLQuestion>
